@@ -6,6 +6,6 @@ class App
 {
     public function run()
     {
-        echo 'run app';
+        var_dump('run app');
     }
 }
