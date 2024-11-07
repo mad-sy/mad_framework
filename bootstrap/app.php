@@ -22,6 +22,8 @@ foreach ($config->get('app.providers') as $provider) {
     $container->addServiceProvider(new $provider);
 };
 
-$app = new App();
+$app = new App($container);
+
+(require('../routes/web.php'))($app->getRouter(), $container);
 
 $app->run();
