@@ -8,10 +8,7 @@ use League\Container\ServiceProvider\BootableServiceProviderInterface;
 
 class ConfigServiceProvider extends AbstractServiceProvider implements BootableServiceProviderInterface
 {
-    public function boot(): void
-    {
-        // 
-    }
+    public function boot(): void {}
 
     public function register(): void
     {
