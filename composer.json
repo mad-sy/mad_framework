@@ -12,6 +12,7 @@
         "laminas/laminas-diactoros": "^3.5",
         "league/route": "^5.1",
         "laminas/laminas-httphandlerrunner": "^2.11",
-        "twig/twig": "^3.0"
+        "twig/twig": "^3.0",
+        "illuminate/database": "^11.30"
     }
 }
