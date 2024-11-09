@@ -7,14 +7,26 @@
 {% block content %}
     Register
     <form action="/register" method="post">
+        {{ csrf() | raw }}
         <div>
             <input type="text" name="first_name" id="first_name" placeholder="Your name" />
+            {% if errors.first_name %}
+                <div>
+                    {{ errors.first_name }}
+                </div>
+            {% endif %}
         </div>
         <div>
             <input type="text" name="email" id="email" placeholder="Your email" />
+            {% if errors.email %}
+                {{ errors.email }}
+            {% endif %}
         </div>
         <div>
             <input type="password" name="password" id="password" placeholder="A password" />
+            {% if errors.password %}
+                {{ errors.password }}
+            {% endif %}
         </div>
         <div>
             <button type="submit">

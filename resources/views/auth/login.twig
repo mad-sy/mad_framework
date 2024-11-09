@@ -6,13 +6,20 @@
 
 {% block content %}
     Login
+    
     <form action="/login" method="post">
     {{ csrf() | raw }}
         <div>
             <input type="text" name="email" id="email" placeholder="Your email" />
+            {% if errors.email %}
+                {{ errors.email }}
+            {% endif %}
         </div>
         <div>
             <input type="password" name="password" id="password" placeholder="A password" />
+            {% if errors.password %}
+                {{ errors.password }}
+            {% endif %}
         </div>
         <div>
             <button type="submit">
