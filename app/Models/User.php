@@ -3,10 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Cartalyst\Sentinel\Users\EloquentUser;
 
-class User extends Model
+class User extends EloquentUser
 {
-    protected $fillable = [
-        'name',
-    ];
+    protected $guarded = ['id'];
 }

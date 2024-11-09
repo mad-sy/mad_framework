@@ -13,6 +13,7 @@
     </head>
     <body>
         <nav>
+            {{ config().get('app.name') }}
             {% include 'layouts/partials/navigation.twig' %}
         </nav>
         <main>

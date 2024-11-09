@@ -1,0 +1,22 @@
+{% extends 'layouts/app.twig' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+    Login
+    <form action="/login" method="post">
+        <div>
+            <input type="text" name="email" id="email" placeholder="Your email" />
+        </div>
+        <div>
+            <input type="password" name="password" id="password" placeholder="A password" />
+        </div>
+        <div>
+            <button type="submit">
+                Login
+            </button>
+        </div>
+    </form>
+{% endblock %}
