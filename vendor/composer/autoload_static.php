@@ -72,6 +72,7 @@ class ComposerStaticInit0c29e9b7a4310a36cdb9fee3dc2c6f60
             'Spatie\\FlareClient\\' => 19,
             'Spatie\\ErrorSolutions\\' => 22,
             'Spatie\\Backtrace\\' => 17,
+            'Slim\\Csrf\\' => 10,
         ),
         'P' => 
         array (
@@ -231,6 +232,10 @@ class ComposerStaticInit0c29e9b7a4310a36cdb9fee3dc2c6f60
         'Spatie\\Backtrace\\' => 
         array (
             0 => __DIR__ . '/..' . '/spatie/backtrace/src',
+        ),
+        'Slim\\Csrf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/slim/csrf/src',
         ),
         'Psr\\SimpleCache\\' => 
         array (
