@@ -6,12 +6,17 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>
             {% if block('title') is defined %}
-                {{ block('title') }} |
+                {{ block('title') }}
+                |
             {% endif %}
             {{ config().get('app.name') }}
         </title>
     </head>
     <body>
+        {% if session().getFlashBag.get('message') is defined %}
+            {{ session().getFlashBag.get('message')[0] }}
+        {% endif %}
+
         <nav>
             {{ config().get('app.name') }}
             {% include 'layouts/partials/navigation.twig' %}

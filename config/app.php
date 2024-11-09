@@ -7,6 +7,7 @@ use App\Providers\ViewServiceProvider;
 use App\Providers\RouteServiceProvider;
 use App\Providers\RequestServiceProvider;
 use App\Providers\DatabaseServiceProvider;
+use App\Providers\SessionServiceProvider;
 
 return [
     'name' => env('APP_NAME'),
@@ -20,5 +21,6 @@ return [
         DatabaseServiceProvider::class,
         AuthServiceProvider::class,
         CsrfServiceProvider::class,
+        SessionServiceProvider::class,
     ],
 ];
