@@ -10,7 +10,7 @@
     <form action="/login" method="post">
     {{ csrf() | raw }}
         <div>
-            <input type="text" name="email" id="email" placeholder="Your email" />
+            <input type="text" name="email" id="email" value="{{ old('email') }}" placeholder="Your email" />
             {% if errors.email %}
                 {{ errors.email }}
             {% endif %}
