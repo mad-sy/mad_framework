@@ -17,9 +17,6 @@ class LogoutController
     public function __invoke(ServerRequestInterface $request)
     {
         $this->auth->logout();
-
-        $this->session->getFlashBag()->add('message', 'You have logged out!');
-
         return new RedirectResponse('/');
     }
 }

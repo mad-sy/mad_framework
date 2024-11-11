@@ -18,7 +18,6 @@ class RedirectIfGuest implements MiddlewareInterface
         $container = Container::getInstance();
 
         if (!$container->get(Sentinel::class)->check()) {
-            $container->get(Session::class)->getFlashBag()->add('message', 'Login before!');
             return new RedirectResponse('/login');
         }
 

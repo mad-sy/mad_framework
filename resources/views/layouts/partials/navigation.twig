@@ -1,38 +1,42 @@
-<ul>
-    <li>
-        <a href="/">
-            Home
-        </a>
-    </li>
-    {% if auth().check() %}
-        <li>
-            <a href="/dashboard">
-                Dashboard
-            </a>
-        </li>
-        <li>
-            {{ auth().user().first_name }}
-        </li>
-        <li>
-            <form action="/logout" method="post">
-            {{ csrf() | raw }}
-                <button type="submit">
-                    Logout
-                </button>
-            </form>
-        </li>
-    {% endif %}
-    
-    {% if not auth().check() %}
-        <li>
-            <a href="/register">
-                Register
-            </a>
-        </li>
-        <li>
-            <a href="/login">
-                Login
-            </a>
-        </li>
-    {% endif %}
-</ul>
+<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+    <div class="relative flex h-16 items-center justify-between">
+        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+            <div class="flex shrink-0 items-center">
+                <span>
+                    {{ config().get('app.name') }}
+                </span>
+            </div>
+            <div class="hidden sm:ml-6 sm:block">
+                <div class="flex space-x-4">
+                    <a href="/" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                        Home
+                    </a>
+                    <a href="/dashboard" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                        Dashboard
+                    </a>
+                    {% if not auth().check() %}
+                        <a href="/login" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                            Login
+                        </a>
+                        <a href="/register" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                            Register
+                        </a>
+                    {% endif %}
+                    {% if auth().check() %}
+                        <form action="/logout" method="post">
+                            {{ csrf() | raw }}
+                            <button type="submit" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                                Logout
+                            </button>
+                        </form>
+                        <div class="flex shrink-0 items-center mt-1/2">
+                            <span>
+                                {{ auth().user().first_name }}
+                            </span>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

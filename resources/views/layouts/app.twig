@@ -11,14 +11,10 @@
             {% endif %}
             {{ config().get('app.name') }}
         </title>
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
-    <body>
-        {% if session().getFlashBag.get('message') is defined %}
-            {{ session().getFlashBag.get('message')[0] }}
-        {% endif %}
-
+    <body class="h-full">
         <nav>
-            {{ config().get('app.name') }}
             {% include 'layouts/partials/navigation.twig' %}
         </nav>
         <main>
