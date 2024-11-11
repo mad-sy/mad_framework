@@ -12,4 +12,9 @@ class View
     {
         return $this->twig->render($view, $data);
     }
+
+    public function exists(string $view)
+    {
+        return $this->twig->getLoader()->exists($view);
+    }
 }
