@@ -14,6 +14,6 @@ class LogoutController
     public function __invoke()
     {
         $this->auth->logout();
-        return new RedirectResponse('/');
+        return new RedirectResponse(route('home'));
     }
 }

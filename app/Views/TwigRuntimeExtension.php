@@ -41,4 +41,9 @@ class TwigRuntimeExtension extends AbstractExtension
     {
         return $this->session()->getFlashBag()->peek('old')[$key] ?? null;
     }
+
+    public function route(string $name, array $arguments = [])
+    {
+        return route($name, $arguments);
+    }
 }

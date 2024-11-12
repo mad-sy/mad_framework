@@ -8,22 +8,22 @@
             </div>
             <div class="hidden sm:ml-6 sm:block">
                 <div class="flex space-x-4">
-                    <a href="/" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                    <a href="{{ route('home') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
                         Home
                     </a>
-                    <a href="/dashboard" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                    <a href="{{ route('dashboard') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
                         Dashboard
                     </a>
                     {% if not auth().check() %}
-                        <a href="/login" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                        <a href="{{ route('login.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
                             Login
                         </a>
-                        <a href="/register" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
+                        <a href="{{ route('register.index') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
                             Register
                         </a>
                     {% endif %}
                     {% if auth().check() %}
-                        <form action="/logout" method="post">
+                        <form action="{{ route('logout') }}" method="post">
                             {{ csrf() | raw }}
                             <button type="submit" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-700 hover:text-white">
                                 Logout

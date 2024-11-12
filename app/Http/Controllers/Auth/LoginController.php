@@ -39,9 +39,9 @@ class LoginController
                 'email' => 'Could not sign you in with these details'
             ]);
 
-            return new RedirectResponse('/login');
+            return new RedirectResponse(route('login.index'));
         }
 
-        return new RedirectResponse('/dashboard');
+        return new RedirectResponse(route('dashboard'));
     }
 }

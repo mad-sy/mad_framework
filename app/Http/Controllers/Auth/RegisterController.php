@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Views\View;
 use Cartalyst\Sentinel\Sentinel;
 use Respect\Validation\Validator as v;
 use Psr\Http\Message\ServerRequestInterface;
@@ -14,7 +13,6 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class RegisterController
 {
     public function __construct(
-        protected View $view,
         protected Sentinel $auth,
         protected Session $session,
     ) {}
@@ -36,13 +34,13 @@ class RegisterController
                 ->assert($request->getParsedBody());
         } catch (ValidatorException $e) {
             $this->session->getFlashBag()->add('errors', $e->getMessages());
-            return new RedirectResponse('/register');
+            return new RedirectResponse(route('register.index'));
         }
 
         if ($user = $this->auth->registerAndActivate($request->getParsedBody())) {
             $this->auth->login($user);
         }
 
-        return new RedirectResponse('/dashboard');
+        return new RedirectResponse(route('dahsboard'));
     }
 }
