@@ -15,7 +15,7 @@ class AppServiceProvider extends AbstractServiceProvider implements BootableServ
 {
     public function boot(): void
     {
-        if ($this->getContainer()->get(Config::class)->get('app.debug')) {
+        if (app(Config::class)->get('app.debug')) {
             Ignition::make()->register();
         }
 
@@ -26,19 +26,19 @@ class AppServiceProvider extends AbstractServiceProvider implements BootableServ
         );
 
         Paginator::currentPathResolver(function () {
-            return strtok($this->getContainer()->get(Request::class)->getUri(), '?');
+            return strtok(app(Request::class)->getUri(), '?');
         });
 
         Paginator::queryStringResolver(function () {
-            return $this->getContainer()->get(Request::class)->getQueryParams();
+            return app(Request::class)->getQueryParams();
         });
 
         Paginator::currentPageResolver(function ($pageName = 'page') {
-            return $this->GetContainer()->get(Request::class)->getQueryParams()[$pageName] ?? 1;
+            return app(Request::class)->getQueryParams()[$pageName] ?? 1;
         });
 
         Paginator::viewFactoryResolver(function () {
-            return $this->getContainer()->get(View::class);
+            return app(View::class);
         });
 
         Paginator::defaultView('pagination/default.twig');

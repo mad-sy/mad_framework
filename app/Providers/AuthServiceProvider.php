@@ -15,7 +15,7 @@ class AuthServiceProvider extends AbstractServiceProvider implements BootableSer
     public function boot(): void 
     {
         $bootstrapper = new SentinelBootstrapper(
-            $this->getContainer()->get(Config::class)->get('auth'),
+            app(Config::class)->get('auth'),
         );
 
         $sentinel = \Cartalyst\Sentinel\Native\Facades\Sentinel::instance($bootstrapper);

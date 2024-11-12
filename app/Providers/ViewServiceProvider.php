@@ -23,7 +23,7 @@ class ViewServiceProvider extends AbstractServiceProvider implements BootableSer
 
             $twig = new Environment($loader, [
                 'cache' => false,
-                'debug' => $this->getContainer()->get(Config::class)->get('app.debug'),
+                'debug' => app(Config::class)->get('app.debug'),
             ]);
 
             $twig->addRuntimeLoader(new TwigRuntimeLoader($this->getContainer()));
