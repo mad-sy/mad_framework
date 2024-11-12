@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Views\View;
-use Laminas\Diactoros\Response;
 use Cartalyst\Sentinel\Sentinel;
 use Respect\Validation\Validator as v;
 use Psr\Http\Message\ServerRequestInterface;
@@ -22,15 +21,9 @@ class RegisterController
 
     public function index()
     {
-        $response = new Response();
-
-        $response->getBody()->write(
-            $this->view->render('auth/register.twig', [
-                'errors' => $this->session->getFlashBag()->get('errors')[0] ?? null
-            ])
-        );
-
-        return $response;
+        return view('auth/register.twig', [
+            'errors' => $this->session->getFlashBag()->get('errors')[0] ?? null,
+        ]);
     }
 
     public function store(ServerRequestInterface $request)

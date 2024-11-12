@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Views\View;
-use Laminas\Diactoros\Response;
 use Cartalyst\Sentinel\Sentinel;
 use Respect\Validation\Validator as v;
 use Psr\Http\Message\ServerRequestInterface;
@@ -14,22 +12,15 @@ use Symfony\Component\HttpFoundation\Session\Session;
 class LoginController
 {
     public function __construct(
-        protected View $view,
         protected Sentinel $auth,
         protected Session $session,
     ) {}
 
     public function index()
     {
-        $response = new Response();
-
-        $response->getBody()->write(
-            $this->view->render('auth/login.twig', [
-                'errors' => $this->session->getFlashBag()->get('errors')[0] ?? null
-            ])
-        );
-
-        return $response;
+        return view('auth/login.twig', [
+            'errors' => $this->session->getFlashBag()->get('errors')[0] ?? null
+        ]);
     }
 
     public function store(ServerRequestInterface $request)

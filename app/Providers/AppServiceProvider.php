@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use App\Views\View;
-use App\Config\Config;
 use Spatie\Ignition\Ignition;
 use Laminas\Diactoros\Request;
 use Respect\Validation\Factory;
@@ -15,7 +14,7 @@ class AppServiceProvider extends AbstractServiceProvider implements BootableServ
 {
     public function boot(): void
     {
-        if (app(Config::class)->get('app.debug')) {
+        if (config('app.debug')) {
             Ignition::make()->register();
         }
 
