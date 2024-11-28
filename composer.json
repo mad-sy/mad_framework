@@ -31,9 +31,5 @@
         "slim/csrf": "^1.5",
         "respect/validation": "^2.3",
         "illuminate/pagination": "^10.48"
-    }, "extra": {
-        "mad_framework": {
-            "dont-discover": []
-        }
     }
 }
