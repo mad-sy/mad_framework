@@ -1,7 +1,10 @@
 {
     "name": "mad-sy/mad_framework",
     "description": "A mini PHP Framework made by MAD for students",
-    "keywords": ["MAD", "framework"],
+    "keywords": [
+        "MAD",
+        "framework"
+    ],
     "type": "project",
     "license": "MIT",
     "autoload": {
@@ -28,5 +31,9 @@
         "slim/csrf": "^1.5",
         "respect/validation": "^2.3",
         "illuminate/pagination": "^10.48"
+    }, "extra": {
+        "mad_framework": {
+            "dont-discover": []
+        }
     }
 }
